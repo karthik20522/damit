@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DSA | DAM Simple Search</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://webapplayers.com/homer_admin-v2.0/vendor/metisMenu/dist/metisMenu.css" />
+    <link rel="stylesheet" href="http://webapplayers.com/homer_admin-v2.0/vendor/animate.css/animate.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <!-- App styles -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/pixeden-stroke-7-icon/1.2.3/dist/pe-icon-7-stroke.css" />
+    <link rel="stylesheet" href="http://webapplayers.com/homer_admin-v2.0/fonts/pe-icon-7-stroke/css/helper.css" />
+    <link rel="stylesheet" href="http://webapplayers.com/homer_admin-v2.0/vendor/select2-3.5.2/select2.css" />
+    <link rel="stylesheet" href="http://webapplayers.com/homer_admin-v2.0/vendor/select2-bootstrap/select2-bootstrap.css" />
+    <link rel="stylesheet" href="http://webapplayers.com/homer_admin-v2.0/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" />
+    <link rel="stylesheet" href="http://webapplayers.com/homer_admin-v2.0/vendor/bootstrap-datepicker-master/dist/css/bootstrap-datepicker3.min.css" />
+    <link rel="stylesheet" href="http://webapplayers.com/homer_admin-v2.0/vendor/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" />
+    <link rel="stylesheet" href="http://webapplayers.com/homer_admin-v2.0/styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-jsonview/1.2.3/jquery.jsonview.min.css">
+    <link rel="stylesheet" href="damsearch.css">
+</head>
+
+<body class="fixed-navbar sidebar-scroll">
+    <!-- Header -->
+    <div id="header">
+        <div class="color-line">
+        </div>
+        <div id="logo" class="light-version">
+            <span>
+            DAMit 2.0
+        </span>
+        </div>
+        <nav role="navigation">
+            <div class="header-link hide-menu"><i class="fa fa-bars"></i></div>
+            <div class="small-logo">
+                <span class="text-primary">DSA</span>
+            </div>
+            <form role="search" class="navbar-form-custom" action="#">
+                <div class="form-group">
+                    <input type="text" id="searchByIds" placeholder="Search by MasterIds (comma seperated)" class="form-control" name="search">
+                </div>
+            </form>
+        </nav>
+    </div>
+    <!-- Main Wrapper -->
+    <div id="wrapper">
+        <div class="content">
+            <div class="row">
+                <div class="col-md-3 searchDiv">
+                    <div class="hpanel hyellow">
+                        <div class="panel-heading">
+                            <div class="panel-tools">
+                                <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                            </div>
+                            <b>Quick Search</b>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-4 border-right">
+                                    <div class="form-group">
+                                        <label class="control-label">Family:</label>
+                                        <div class="input-group">
+                                            <div class="checkbox checkbox-primary">
+                                                <input class="qk_family" field="licenseCharacteristics.assetFamily" value="Editorial" checked id="qk_family_editorial" type="checkbox">
+                                                <label for="qk_family_editorial">
+                                                    Editorial
+                                                </label>
+                                            </div>
+                                            <div class="checkbox checkbox-primary">
+                                                <input class="qk_family" field="licenseCharacteristics.assetFamily" value="Creative" id="qk_family_creative" type="checkbox">
+                                                <label for="qk_family_creative">
+                                                    Creative
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 border-right">
+                                    <div class="form-group">
+                                        <label class="control-label">Content:</label>
+                                        <div class="input-group">
+                                            <div class="checkbox checkbox-primary">
+                                                <input class="qk_content" field="contents.contentType" value="Image" checked id="qk_content_images" type="checkbox">
+                                                <label for="qk_content_images">
+                                                    Images
+                                                </label>
+                                            </div>
+                                            <div class="checkbox checkbox-primary">
+                                                <input class="qk_content" field="contents.contentType" value="Video" id="qk_content_video" type="checkbox">
+                                                <label for="qk_content_video">
+                                                    Video
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Home:</label>
+                                        <div class="input-group">
+                                            <div class="checkbox checkbox-primary">
+                                                <input class="qk_home" field="contents.homeProperty" value="Getty" checked id="qk_home_getty" type="checkbox">
+                                                <label for="qk_home_getty">
+                                                    Getty
+                                                </label>
+                                            </div>
+                                            <div class="checkbox checkbox-primary">
+                                                <input class="qk_home" field="contents.homeProperty" value="iStock" id="qk_home_istock" type="checkbox">
+                                                <label for="qk_home_istock">
+                                                    IStock
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Asset Status:</label>
+                                        <div class="input-group">
+                                            <div class="checkbox checkbox-primary checkbox-inline">
+                                                <input field="contents.contentManagement.state" value="Submitted" class="qk_status" id="qk_status_submit" type="checkbox">
+                                                <label for="qk_status_submit">
+                                                    Submit
+                                                </label>
+                                            </div>
+                                            <div class="checkbox checkbox-primary checkbox-inline">
+                                                <input field="contents.contentManagement.state" value="pending" class="qk_status" id="qk_status_pending" type="checkbox">
+                                                <label for="qk_status_pending">
+                                                    Pending
+                                                </label>
+                                            </div>
+                                            <div class="checkbox checkbox-primary checkbox-inline">
+                                                <input field="contents.contentManagement.state" value="failed" class="qk_status" id="qk_status_failed" type="checkbox">
+                                                <label for="qk_status_failed">
+                                                    Failed
+                                                </label>
+                                            </div>
+                                            <div class="checkbox checkbox-primary checkbox-inline">
+                                                <input field="contents.contentManagement.state" value="success" class="qk_status" id="qk_status_success" type="checkbox">
+                                                <label for="qk_status_success">
+                                                    Success
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Submit Date:</label>
+                                <div class="input-daterange input-group" id="datepicker">
+                                    <input type="text" class="input-sm form-control" name="start" id="qk_from_date" />
+                                    <span class="input-group-addon">to</span>
+                                    <input type="text" class="input-sm form-control" name="end" id="qk_to_date" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <button id="qk_search_btn" class="btn btn-primary btn-block">Search</button>
+                        </div>
+                    </div>
+                    <div class="hpanel hred ">
+                        <div class="panel-heading">
+                            <div class="panel-tools">
+                                <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                            </div>
+                            <b>Advanced Search</b>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <div id="propertySelectDiv" class="input-group">
+                                </div>
+                                <div id="propertySelectDiv2" class="input-group">
+                                    <select id="selectpickerValue" data-header="Step 2: Pick a Value... (Multi Select)" multiple class="selectpicker" title="Step 2: Value to search on.." data-live-search="true" disabled>
+                                    </select>
+                                </div>
+                                <div id="advAddBtnDiv" class="input-group advAddBtnDiv">
+                                    <button id="addAdvFieldBtn" class="btn btn-primary" type="button"><i class="fa fa-check"></i> Add</button>
+                                </div>
+                                <div id="selectedValues" class="input-group">
+                                    <div field="licenseCharacteristics.assetFamily" value="Editorial,Creative" class="hpanel advanced_search_fields">
+                                        <div class="panel-heading noPaddingTB">
+                                            <div class="panel-tools">
+                                                <a class="closebox"><i class="fa fa-times"></i></a>
+                                            </div>
+                                            AssetFamily: Editorial, Creative
+                                        </div>
+                                    </div>
+                                    <div field="contents.contentType" value="Image" class="hpanel advanced_search_fields">
+                                        <div class="panel-heading noPaddingTB">
+                                            <div class="panel-tools">
+                                                <a class="closebox"><i class="fa fa-times"></i></a>
+                                            </div>
+                                            ContentFamily: Image
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <button id="adv_search_btn" class="btn btn-primary btn-block">Search</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="col-lg-12 text-center welcome-message">
+                        <h2>DAM Simple Search</h2>
+                        <p>Search, View and maybe someday Edit and Republish Image/Video assets</p>
+                    </div>
+                    <div class="row" id="yourQueryDiv" style="display:none;margin-bottom: 10px; font-size:10px; text-align: center;">
+                        <div class="col-md-12">
+                            <b>Query: </b><span id="yourQuery"></span>
+                        </div>
+                    </div>
+                    <div class="row" id="tableResultsDiv">
+                    </div>
+                    <div class="row" id="resultNavigateDiv" style="display: none;">
+                        <div class="col-md-12">
+                            <div id="resultNavigationGroup" class="btn-group" style="float:right; margin-right: 15px; margin-top: 10px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="right-sidebar" class="animated fadeInRight sidebar-open" style="width: 380px !important; display: none;">
+            <div class="p-m">
+                <button id="sidebar-close" class="right-sidebar-toggle sidebar-button btn btn-default m-b-md"><i class="pe pe-7s-close"></i>
+                </button>
+                <div style="text-align: center;">
+                    <img id="assetViewImage" style="max-width: 340px; max-height: 340px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png" />
+                    <br>
+                    <span class="font-bold no-margins" id="assetViewMasterId"> </span>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="project-label">Family</div>
+                        <small id="assetViewFamily"></small>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="project-label">Home</div>
+                        <small id="assetViewHome"></small>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="project-label">Type</div>
+                        <small id="assetViewType"></small>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="project-label">State</div>
+                        <small id="assetViewState"></small>
+                    </div>
+                </div>
+            </div>
+            <div class="project-action m-t-md" style="float:right; margin-top: 0px;">
+                <div class="btn-group">
+                	<button id="jsonEdit" data-toggle="tooltip" data-placement="top" title="Not Implemented" class="btn btn-xs btn-default"> Edit</button>
+                    <button id="jsonView" class="btn btn-xs btn-default"> View</button>                    
+                </div>
+            </div>
+            <div id="assetJsonData" class="p-m bg-light border-bottom border-top" style="font-size:10px !important;">
+            </div>
+        </div>
+        <footer class="footer">
+            <span class="pull-right">Digital Asset Management (DAM Simple)</span>
+        </footer>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="color-line"></div>
+                <div class="modal-header text-center">
+                    <h4 class="modal-title">Export to CSV</h4>
+                    <small class="font-bold">Download your current search results to a CSV file. You can either pick individual properties to export or root elements or both. <br><i>Note: Max 500MB of data.</i></small>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6" id="exportRootPropertiesDiv">
+                        </div>
+                        <div class="col-md-6" id="exportAssetPropertiesDiv">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="m" id="exportProgressBarDiv" style="display:none;">
+                                <div class="progress m-t-xs full progress-striped active">
+                                    <div style="width: 0%" id="exportProgressBar" aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" role="progressbar" class=" progress-bar progress-bar-success">
+                                        0%
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="padding-top: 9px;">
+                            <button id="exportDataBtn" class="btn btn-primary " type="button"><i class="fa fa-download"></i> Download</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://webapplayers.com/homer_admin-v2.0/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="http://webapplayers.com/homer_admin-v2.0/vendor/jquery-ui/jquery-ui.min.js"></script>
+    <script src="http://webapplayers.com/homer_admin-v2.0/vendor/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="http://webapplayers.com/homer_admin-v2.0/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="http://webapplayers.com/homer_admin-v2.0/vendor/iCheck/icheck.min.js"></script>
+    <script src="http://webapplayers.com/homer_admin-v2.0/vendor/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="http://webapplayers.com/homer_admin-v2.0/vendor/sparkline/index.js"></script>
+    <script src="http://webapplayers.com/homer_admin-v2.0/vendor/select2-3.5.2/select2.min.js"></script>
+    <script src="http://webapplayers.com/homer_admin-v2.0/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="http://webapplayers.com/homer_admin-v2.0/vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="http://webapplayers.com/homer_admin-v2.0/scripts/homer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+    <script src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/elasticsearch/13.2.0/elasticsearch.jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-jsonview/1.2.3/jquery.jsonview.min.js"></script>
+    <script src="damsearch.js"></script>
+</body>
+
+</html>

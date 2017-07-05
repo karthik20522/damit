@@ -1,0 +1,57 @@
+    .navbar-form-custom {
+        width: 60%;
+    }
+    
+    #wrapper {
+        margin: 0px;
+    }
+    
+    .content {
+        padding-left: 0px;
+        padding-top: 1px;
+    }
+    
+    .advAddBtnDiv {
+        position: relative;
+        text-align: right;
+        float: right;
+        width: 100%;
+        margin-top: 5px;
+    }
+    
+    .text-muted {
+        text-align: right;
+        float: right;
+    }
+    
+    .bootstrap-select.btn-group.show-tick .dropdown-menu li a span.text {
+        margin-right: 0px;
+        width: 95%;
+    }
+    
+    .hpanel {
+        margin-bottom: 5px !important;
+    }
+
+    .noPaddingTB {
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .searchDiv {
+        background-color:#fff; 
+        min-width: 295px; 
+        margin-left:0px;
+    }
+
+    .modal-dialog {
+        width: 55%;
+    }
+
+    .project-label {
+        font-weight: bold;
+    }
+
+    .masterIdLink {
+        border-bottom: 1px dotted;
+    }
