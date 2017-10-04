@@ -104,7 +104,7 @@ var DsaUtilities = {
 var DsaSearch = {
 
     getListOfFields: function() {
-        $.getJSON("http://search.gettyimages.io/assets/asset/_mapping", function(data) {
+        $.getJSON("http://search.gettyimages.io:9200/assets/asset/_mapping", function(data) {
             var flattenedObj = DsaUtilities.flatten(data);
             var filteredFieldNames = DsaUtilities.filterAssetFields(flattenedObj);
             DsaSearch.appendESSearchFieldsToBody(filteredFieldNames.root, filteredFieldNames.fields);
@@ -441,7 +441,7 @@ var DsaSearch = {
 
     scanAndScroll: function(queryString, sourceFieldArray) {
         var client = new $.es.Client({
-            hosts: 'http://search.gettyimages.io'
+            hosts: 'http://search.gettyimages.io:9200'
         });
 
         var allRecords = [];
